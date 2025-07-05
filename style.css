@@ -1,0 +1,182 @@
+:root {
+    /* Light Mode Variables */
+    --background-color-light: hsl(0, 0%, 98%); /* Very Light Gray */
+    --elements-background-light: hsl(0, 0%, 100%); /* White */
+    --text-color-light: hsl(200, 15%, 8%); /* Very Dark Blue (text) */
+    --input-color-light: hsl(0, 0%, 52%); /* Dark Gray (input) */
+}
+
+.dark-mode {
+    /* Dark Mode Variables */
+    --background-color-dark: hsl(207, 26%, 17%); /* Dark Blue (background) */
+    --elements-background-dark: hsl(209, 23%, 22%); /* Very Dark Blue (elements) */
+    --text-color-dark: hsl(0, 0%, 100%); /* White */
+
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+.container {
+    max-width: 1280px; /* Slightly wider container for more flags */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: var(--elements-background-light);
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 800; /* Extra bold */
+}
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+/* Search Section */
+.search-section {
+    margin-bottom: 40px;
+    display: flex; /* For potential future filters */
+    justify-content: flex-start;
+}
+
+.search-bar {
+    background-color: var(--elements-background-light);
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.search-bar i {
+    color: var(--input-color-light);
+    margin-right: 15px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 0.9rem;
+    background: transparent;
+    color: inherit;
+}
+
+.search-bar input::placeholder {
+    color: var(--input-color-light);
+}
+
+
+/* Flag Container & Card - Adjusted for Grid Layout */
+.flag-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Responsive grid */
+    gap: 60px; /* Space between cards */
+    justify-items: center; /* Center items within their grid cells */
+    padding-bottom: 50px;
+}
+
+.flag-card {
+    background-color: var(--elements-background-light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px; /* Maximum width for individual cards */
+    cursor: pointer; /* Indicate it's clickable (for future detail pages) */
+    transition: transform 0.2s ease-in-out;
+}
+
+.flag-card:hover {
+    transform: translateY(-5px); /* Simple hover effect */
+}
+
+
+.flag-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.flag-info {
+    padding: 25px;
+}
+
+.flag-info h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 800; /* Extra bold */
+}
+
+.flag-info p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-weight: 600; /* Semi-bold for labels */
+}
+
+.flag-info p strong {
+    font-weight: 300; /* Light for values */
+}
+
+
+/* Dark Mode Specific Styles */
+.dark-mode header {
+    background-color: var(--elements-background-dark);
+}
+
+.dark-mode .search-bar {
+    background-color: var(--elements-background-dark);
+}
+
+.dark-mode .search-bar i {
+    color: var(--text-color-dark);
+}
+
+.dark-mode .search-bar input::placeholder {
+    color: var(--text-color-dark);
+}
+
+.dark-mode .flag-card {
+    background-color: var(--elements-background-dark);
+}
+
+.dark-mode .dark-mode-toggle .fa-moon {
+    color: var(--text-color-dark);
+}
